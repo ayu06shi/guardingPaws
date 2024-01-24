@@ -1,11 +1,22 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./public/index.html",
+    "./src/**/*.{html,js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'poppins': ["Poppins", "sans-serif"],
+      },
+      colors: {
+        'yellow-main': '#FFD466',
+        'blobColor': '#FCC844',
+      },
+      backgroundImage: {
+        // 'dogg': 'url(/images/dog2.png)',
+      }
+    },
   },
   plugins: [],
 }
