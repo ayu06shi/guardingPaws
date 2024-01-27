@@ -3,44 +3,47 @@ import { Link, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import doggy from "../images/dog3.png"
+import axios from "axios";
+import toast from "react-hot-toast";
+import { useAuth } from "../context/auth";
 
-function Login() {
-    const [credentials, setCredentials] = useState({
-        email: "",
-        password: "",
-    });
-    let navigate = useNavigate()
+const Login = () => {
+
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [auth, setAuth] = useAuth();
+
+    const navigate = useNavigate()
 
     const handleSubmit = async(e) => {
-        e.preventDefault();
-        const response = await fetch("", {
-            method: "POST",
+      e.preventDefault();
+      try {
+          const config = {
             headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                email: credentials.email,
-                password: credentials.password,
+                "Content-type": "application/json"
+              }
+            }
+
+          const res = await axios.post('/api/user/login', {email, password}, config);
+          if(res && res.data.success) {
+            toast.success('Login Successfully')
+            setAuth({
+              ...auth,
+              user: res.data.userToReturn,
+              token: res.data.token
             })
-        });
-
-        const json = await response.json();
-        console.log(json);
-
-        if(!json.success){
-            alert("Enter valid credentials !");
+            localStorage.setItem('auth', JSON.stringify(res.data));
+            navigate('/')
+          } else {
+            toast.error(res.data.message)
+          }
         }
-        else{
-            localStorage.setItem("userEmail", credentials.email);
-            localStorage.setItem("authToken", json.authToken);
-            console.log(localStorage.getItem("authToken"))
-            navigate("/signup");
+        catch(error) {
+          console.log(error);
+          toast.error('Something went wrong')
         }
-    };
+      }
 
-    const onChange = (e) => {
-        setCredentials ({...credentials, [e.target.classname]: e.target.value});
-    }
   return (
     <div>
       <div>
@@ -62,10 +65,10 @@ function Login() {
                 type="email"
                 className="form-control border shadow-sm mx-2 my-6"
                 name="email"
-                value={credentials.email}
+                value={email}
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
-                onChange={onChange}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <div id="emailHelp" className="form-text font-light">
                 We'll never share your email with anyone else.
@@ -79,9 +82,9 @@ function Login() {
                 type="password"
                 className="form-control border shadow-sm mx-2 my-6"
                 name="password"
-                value={credentials.password}
+                value={password}
                 id="exampleInputPassword1"
-                onChange={onChange}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
           <div className="flex justify-between">
