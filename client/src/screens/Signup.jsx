@@ -111,8 +111,9 @@ function Signup() {
                 />
             </div>
             <div className="flex justify-between">
+              <Link to='#'>
             <button type="submit" className="bg-yellow-main rounded px-2">Submit</button>
-
+            </Link>
             <Link to="/login" className="bg-yellow-main rounded px-2">
                 Already a user
             </Link>
