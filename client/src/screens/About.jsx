@@ -4,16 +4,18 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import dogg from "../images/dog2.png";
 import img1 from "../images/my pic.jpeg";
+import Loader from "../components/Loader";
 
 function About() {
   return (
     <div className="overflow-x-hidden relative w-full">
+      {/* <Loader/> */}
       <div>
         <Navbar />
       </div>
       <div className="relative">
         <img src={dogg} alt="" />
-        <div class="absolute px-4 py-3 bg-blobColor top-12 left-7  opacity-60 rounded-lg">
+        <div class="absolute p-8 px-4 py-3">
           <h1 class="bg-blobColor font-poppins rounded-md w-[260px] text-xl text-black">
           At Guarding Paws, we are passionate advocates for the well-being and safety of our beloved animal
            companions. Our mission is to provide a comprehensive resource for dog lovers, offering valuable information and services
@@ -29,6 +31,7 @@ function About() {
           to ensure the health, happiness, and protection of your furry friends.
           </h1>
             {/* <h1 className="text-black font-semibold text-4xl">Who are we ?</h1> */}
+            {/* bg-blobColor w-8 top-4 h-16 left-7 md:h-10 opacity-60 rounded-lg */}
           </div>
       </div>
 
