@@ -8,11 +8,11 @@ function charityLists() {
       <div>
         <Navbar />
       </div>
-      <div className="max-w-screen-xl flex flex-wrap mt-6 relative w-[1080px] mx-auto items-center justify-between mb-28">
+      <div className="flex flex-wrap mt-16 relative max-w-[1080px] mx-auto items-center justify-between mb-28">
         {/* <h3 className="font-poppins text-3xl justify-center items-center">
           Here are some charity suggestions
         </h3> */}
-        <div class="w-full grid grid-cols-3 gap-y-10 gap-x-4 relative z-[100]">
+        <div class="w-full justify-center items-center ml-8 p-6 text-center grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-y-10 gap-x-4 relative z-[100]">
           {/* <!--item 1--> */}
           <div class="relative flex items-center z-0">
             <h2 class="text-deepBlueHead font-mullish font-extrabold text-4xl leading-[3.375rem]">
@@ -522,3 +522,8 @@ function charityLists() {
 }
 
 export default charityLists;
+
+
+// import React from "react";
+// import { Link } from "react-router-dom";
+// import img from "../images/main-logo1234.png";
