@@ -5,22 +5,27 @@ function Process() {
     <div>
       {/* <Loader/> */}
 
-      <div className="max-w-screen-xl flex flex-wrap mt-6 relative w-[1080px] mx-auto items-center justify-between mb-3">
+      <div className="flex flex-wrap mt-6 relative max-w-[1080px] mx-auto items-center justify-between mb-3">
         <div>
           <div className="flex-flex-row">
-            <div className="relative font-poppins text-6xl ml-8 p-6 mt-5 mb-6 h-fit w-[320px] rounded-lg">
+            <div className="relative font-poppins font-bold text-5xl ml-8 p-6 mt-5 mb-6 h-fit text-center rounded-lg">
               How Things Work ?
             </div>
             {/* <div className='h-[140px] w-[190px] mx-[20%] rounded-xl ml-[] p-7 bg-yellow-main'>
 
                     </div> */}
           </div>
-          {/* card 1 */}
-          <div className="relative grid grid-cols-3 sm:grid-grid-cols-2 vsm:grid-grid-cols-1">
-            <div className="relative flex flex-row gap-y-8 mb-6">
-              <div
-                className="p-7 max-h-[400px] cursor-pointer hover:scale-105 transition-all duration-200 h-full"
-              >
+          {/* cards */}
+          <div className="relative grid lg:grid-cols-3 
+          justify-center items-center text-center md:grid-cols-2">
+            {/* card 1 */}
+            <div className="relative gap-y-8 mb-6">
+              <div className="p-7 max-h-[400px] cursor-pointer hover:scale-105 transition-all duration-200 h-full">
+                <div className="absolute bg-yellow-main top-4 left-4 h-10 w-10 rounded-full">
+                  <h1 className="relative font-poppins text-3xl text-center">
+                    1
+                  </h1>
+                </div>
                 <div
                   class="p-7  h-fit w-[300px] bg-[url(./images/bg1.png)] cursor-pointer
                             bg-cover hover:scale-103 transition-all duration-200
@@ -41,10 +46,14 @@ function Process() {
               </div>
             </div>
             {/* card 2 */}
-            <div className="relative flex flex-col gap-y-8 mb-10">
-              <div
-                className="p-7 max-h-[400px] cursor-pointer transition-all duration-200"
-              >
+            <div className="relative gap-y-8 mb-6">
+              <div className="p-7 max-h-[400px] cursor-pointer hover:scale-105 transition-all duration-200 h-full z-0">
+                <div className="absolute bg-yellow-main z-10 top-4 left-4 h-10 w-10 rounded-full">
+                  <h1 className="relative font-poppins text-3xl text-center">
+                    2
+                  </h1>
+                </div>
+
                 <div
                   class="p-7 w-[300px] bg-[url(./images/bg1.png)] h-full cursor-pointer
                             bg-cover hover:scale-105 transition-all duration-200
@@ -66,11 +75,16 @@ function Process() {
             </div>
 
             {/* card 3 */}
-            <div className="relative flex flex-col gap-y-8 mb-10">
+            <div className="relative gap-y-8 mb-6 z-0">
               <div
                 className="p-7 max-h-[400px] cursor-pointer
-              bg-no-repeat transition-all duration-200"
+              bg-no-repeat  hover:scale-105 transition-all duration-200"
               >
+              <div className="absolute bg-yellow-main top-4 left-4 h-10 w-10 rounded-full z-10">
+                <h1 className="relative font-poppins text-3xl text-center">
+                  3
+                </h1>
+              </div>
                 <div
                   class="p-7 w-[300px] bg-[url(./images/bg1.png)] h-full cursor-pointer
                             bg-cover hover:scale-105 transition-all duration-200
@@ -91,11 +105,16 @@ function Process() {
               </div>
             </div>
             {/* card 4 */}
-            <div className="relative flex flex-col gap-y-8 mb-10">
+            <div className="relative gap-y-8 mb-6 z-0">
               <div
                 className="p-7 max-h-fit cursor-pointer
-              bg-no-repeat transition-all duration-200"
+              bg-no-repeat hover:scale-105 transition-all duration-200"
               >
+                <div className="absolute bg-yellow-main top-4 left-4 h-10 w-10 rounded-full z-10">
+                  <h1 className="relative font-poppins text-3xl text-center">
+                    4
+                  </h1>
+                </div>
                 <div
                   class="p-7 w-[300px] bg-[url(./images/bg1.png)] h-full cursor-pointer
                             bg-cover hover:scale-105 transition-all duration-200
@@ -116,10 +135,13 @@ function Process() {
               </div>
             </div>
             {/* card 5 */}
-            <div className="relative flex flex-col gap-y-8 mb-10">
-              <div
-                className="p-7 max-h-fit cursor-pointer transition-all duration-200"
-              >
+            <div className="relative gap-y-8 mb-6 z-0">
+              <div className="p-7 max-h-fit cursor-pointer hover:scale-105 transition-all duration-200">
+              <div className="absolute bg-yellow-main top-4 left-4 h-10 w-10 rounded-full z-10">
+                  <h1 className="relative font-poppins text-3xl text-center">
+                    5
+                  </h1>
+                </div>
                 <div
                   class="p-7 w-[300px] bg-[url(./images/bg1.png)] h-full cursor-pointer
                             bg-cover hover:scale-105 transition-all duration-200
@@ -131,28 +153,25 @@ function Process() {
                   </h3>
                   <p class="font-mullish py-3 text-grayText leading-normal h-fit">
                     Stay informed about the impact of your contributions
-                    effortlessly. With just a click, you should be able to access
-                    detailed records of your philanthropic activities, including the amount donated, the
-                    date of donation, and the specific projects or initiatives
-                    your contributions have supported.
+                    effortlessly. With just a click, you should be able to
+                    access detailed records of your philanthropic activities,
+                    including the amount donated, the date of donation, and the
+                    specific projects or initiatives your contributions have
+                    supported.
                   </p>
                 </div>
               </div>
             </div>
             {/* card 6 */}
-            <div className="relative flex flex-col gap-y-8 mb-10">
-              <div
-                className="p-7 max-h-fit cursor-pointer transition-all duration-200"
-              >
-              
-                  <h3 class="font-mullish text-6xl h-full pt-4 text-start">
-                    &<br/> Keep 
-                    <br/>
-                    Donating :)
-                  </h3>
-                  
-                </div>
+            <div className="relative flex flex-col gap-y-8 mb-10 md:hidden sm:hidden">
+              <div className="max-h-fit transition-all duration-200 text-center">
+                <h3 class="font-mullish justify-center items-center text-5xl h-full">
+                  <br /> Happy
+                  <br />
+                  Donating :)
+                </h3>
               </div>
+            </div>
           </div>
         </div>
       </div>

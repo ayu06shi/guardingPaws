@@ -24,9 +24,9 @@ const Contact = () => {
       <div>
         <Navbar />
       </div>
-      <div className="container flex flex-row justify-evenly mt-4 mb-6 sm:flex-col">
-        <div className="flex flex-col bg-[url(./images/bg-contact.png)] bg-contain bg-no-repeat bg-center justify-stretch">
-            <h2 className="w-[180px] text-6xl font-poppins mb-10 sm:text-center">
+      <div className="relative max-w-[1080px] mt-8 mx-auto container flex lg:flex-row justify-between mb-6 sm:flex-col">
+        <div className="flex flex-col lg:w-1/2 text-center bg-[url(./images/bg-contact.png)] bg-contain bg-no-repeat bg-center bg-opacity-10 justify-between">
+            <h2 className="w-[180px] text-6xl font-poppins mx-auto mb-10 text-center">
               Get in touch
             </h2>
             <div className="flex flex-col gap-y-2 sm:text-center sm:mb-8">
@@ -38,7 +38,7 @@ const Contact = () => {
               <p className="font-poppins">123456789</p>
             </div>
         </div>
-        <form ref={form} onSubmit={sendEmail} action="submit" className="relative flex flex-col gap-y-3 sm:mx-auto">
+        <form ref={form} onSubmit={sendEmail} action="submit" className="relative w-1/2 mx-auto flex flex-col gap-y-3">
           <input
             type="text"
             placeholder="Full Name"
@@ -71,7 +71,7 @@ const Contact = () => {
             className="placeholder-black border border-yellow-main px-2 rounded-md"
           ></textarea>
 
-          <button type="submit" className="bg-yellow-main rounded-md font-poppins hover:text-white transition-all duration-200">
+          <button type="submit" className="bg-yellow-main rounded-md font-poppins hover:text-yellow-main transition-all duration-200">
             Send Message
           </button>
         </form>

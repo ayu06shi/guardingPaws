@@ -7,14 +7,22 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import { useEffect } from "react";
 import './index.css'
 import About from './screens/About';
 import Process from './screens/Process';
 import Lists from './screens/charityLists';
 import Contact from "./screens/Contact";
+import Form from "./screens/Form";
 // import Loader from "./components/Loader";
 
 function App() {
+  // useEffect(() => {
+  //   const use = async () => {
+  //     (await import('tw-elements-react')).default;
+  //   };
+  //   use();
+  // }, []);
   return (
     <div className='App'>
       {/* <Loader/> */}
@@ -28,6 +36,7 @@ function App() {
           {/* <Route exact path="/rehoming" element={<rehomingCentres/>}/> */}
           <Route exact path="/lists" element={<Lists/>}/>
           <Route exact path="/contact" element={<Contact/>}/>
+          <Route exact path="/form" element={<Form/>}/>
           {/* <Route exact path="/forum" element={<Forum/>}/> */}
         </Routes>
       </Router>
