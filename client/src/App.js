@@ -13,8 +13,10 @@ import About from './screens/About';
 import Process from './screens/Process';
 import Lists from './screens/CharityLists';
 import Contact from "./screens/Contact";
-import Form from "./screens/CharityForm";
-import Donate from "./screens/Donate";
+// import Form from "./screens/Form";
+// import UserDonation from "./screens/UserDonation";
+// import CharityHis from "./screens/CharityHis";
+// import Ask from "./screens/Forum/components/Ask";
 // import Loader from "./components/Loader";
 
 function App() {
@@ -34,10 +36,12 @@ function App() {
           <Route exact path="/signup" element={<Signup/>}/>
           <Route exact path="/about" element={<About/>}/>
           <Route exact path="/process" element={<Process/>}/>
-          {/* <Route exact path="/rehoming" element={<rehomingCentres/>}/> */}
           <Route exact path="/lists" element={<Lists/>}/>
           <Route exact path="/contact" element={<Contact/>}/>
           <Route exact path="/form" element={<Form/>}/>
+          <Route exact path="/userhis" element={<UserDonation/>}/>
+          <Route exact path="/charityhis" element={<CharityHis/>}/>
+          <Route exact path="/ask" element={<Ask/>}/>
           {/* <Route exact path="/forum" element={<Forum/>}/> */}
           <Route exact path="/donate" element={<Donate/>}/>
         </Routes>
