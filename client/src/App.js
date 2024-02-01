@@ -11,7 +11,7 @@ import { useEffect } from "react";
 import './index.css'
 import About from './screens/About';
 import Process from './screens/Process';
-import Lists from './screens/charityLists';
+import Lists from './screens/CharityLists';
 import Contact from "./screens/Contact";
 import Form from "./screens/Form";
 // import Loader from "./components/Loader";
