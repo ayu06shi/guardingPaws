@@ -11,12 +11,17 @@ import { useEffect } from "react";
 import './index.css'
 import About from './screens/About';
 import Process from './screens/Process';
-import Lists from './screens/charityLists';
+import Lists from './screens/CharityLists';
 import Contact from "./screens/Contact";
+<<<<<<< HEAD
 import Form from "./screens/Form";
 import UserDonation from "./screens/UserDonation";
 import CharityHis from "./screens/CharityHis";
 import Ask from "./screens/Forum/components/Ask";
+=======
+import Form from "./screens/CharityForm";
+import Donate from "./screens/Donate";
+>>>>>>> upstream/main
 // import Loader from "./components/Loader";
 
 function App() {
@@ -43,6 +48,7 @@ function App() {
           <Route exact path="/charityhis" element={<CharityHis/>}/>
           <Route exact path="/ask" element={<Ask/>}/>
           {/* <Route exact path="/forum" element={<Forum/>}/> */}
+          <Route exact path="/donate" element={<Donate/>}/>
         </Routes>
       </Router>
     </div>
