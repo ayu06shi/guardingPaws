@@ -85,7 +85,7 @@ function About() {
               <h3 className="font-poppins font-bold text-center">Shubham Kumar</h3>
 
               <div className="flex flex-row justify-evenly">
-                <Link to="#" className="hover:scale-110 transition-all duration-200">
+                <Link to="https://www.instagram.com/shubham_raj027/" className="hover:scale-110 transition-all duration-200">
                   <i class="ri-instagram-line"></i>
                 </Link>
                 <Link to="https://www.linkedin.com/in/shubham-raj-694a33252/" className="hover:scale-110 transition-all duration-200">
