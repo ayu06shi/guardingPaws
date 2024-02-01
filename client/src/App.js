@@ -13,7 +13,8 @@ import About from './screens/About';
 import Process from './screens/Process';
 import Lists from './screens/CharityLists';
 import Contact from "./screens/Contact";
-import Form from "./screens/Form";
+import Form from "./screens/CharityForm";
+import Donate from "./screens/Donate";
 // import Loader from "./components/Loader";
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
           <Route exact path="/contact" element={<Contact/>}/>
           <Route exact path="/form" element={<Form/>}/>
           {/* <Route exact path="/forum" element={<Forum/>}/> */}
+          <Route exact path="/donate" element={<Donate/>}/>
         </Routes>
       </Router>
     </div>

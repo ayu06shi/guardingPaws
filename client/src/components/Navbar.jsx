@@ -1,9 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import img from "../images/main-logo1234.png";
+import { useAuth } from "../context/auth";
 
 function Navbar(){
-     
+  const [auth, setAuth] = useAuth([])
+  const navigate = useNavigate();
+
+  const handleLogOut = () => {
+    setAuth({
+      ...auth, user: null, token:  "",
+    })
+    localStorage.removeItem('auth');
+    navigate('/')
+  }
+
     return (
         <div className="bg-yellow-main ">
         <header class=" max-w-[1080px] mx-auto header sticky top-0 flex items-center justify-between px-8 py-02">
@@ -24,13 +35,20 @@ function Navbar(){
               <Link to="/about">About</Link>
             </li>
             <li class="p-4 hover:border-b-2 hover:border-white hover:border-opacity-100 hover:text-white duration-200 cursor-pointer">
-              <Link to="/login">Donate</Link>
+              <Link to={auth.user ? "/donate" : "/login"}>Donate</Link>
             </li>
             <li class="p-4 hover:border-b-2 hover:border-white hover:border-opacity-100 hover:text-white duration-200 cursor-pointer">
               <Link to="/contact">Contact</Link>
             </li>
             <li class="p-4 hover:border-b-2 hover:border-white hover:border-opacity-100 hover:text-white duration-200 cursor-pointer">
-              <Link to="/signup">Signup</Link>
+              {
+                !auth.user ? (
+                  <Link to="/login">Login</Link>
+                ) : (
+                  <button onClick={handleLogOut}>LogOut</button>
+                )
+              }
+              
             </li>
         </ul>
     </nav>

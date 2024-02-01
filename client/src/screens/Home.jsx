@@ -6,12 +6,13 @@ import { Link } from "react-router-dom";
 import React from "react";
 import Loader from "../components/Loader";
 import Process from "./Process";
+import { useAuth } from "../context/auth";
 // import Foooter from "../components/Foooter";
 
 
 
 function Home() {
-
+  const [auth, setAuth] = useAuth([])
   return (
     <div className="overflow-x-hidden relative w-full">
       <div>
@@ -70,7 +71,7 @@ function Home() {
                 <i class="ri-community-line"></i>
               </div>
               <Link
-                to="/login"
+                to={auth.user ? "/donate" : "/login"}
                 className="relative font-poppins text-md z-10 hover:underline"
               >
                 <strong>Donate</strong>

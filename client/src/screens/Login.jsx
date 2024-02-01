@@ -95,7 +95,6 @@ const Login = () => {
               I'm a new user
             </Link></div>
             </div>
-            
           </form>
         </div>
       </div>
