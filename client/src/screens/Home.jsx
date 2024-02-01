@@ -105,7 +105,7 @@ function Home() {
             <div
               class="p-7 w-full bg-[url(./images/bg1.png)] max-h-fit cursor-pointer
               bg-cover transition-all duration-200
-              bg-white hover:scale-105 rounded-lg mx-2 overflow-hidden"
+              bg-white hover:scale-105 rounded-lg mx-auto overflow-hidden"
             >
               <h3 class="font-poppins text-3xl font-bold pt-4">Charity-name</h3>
               <h4 className="text-xl font-bold pt-3">Mission</h4>
