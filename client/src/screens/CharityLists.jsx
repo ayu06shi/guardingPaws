@@ -27,6 +27,17 @@ const CharityLists = () => {
     fetchCharityData();
   }, [])
 
+  const donateHandler = async({name, amount}) => {
+    try {
+      const res = await axios.post("/api/payment/donate", { name, amount });
+      console.log(res.data);
+      // Handle success, e.g., show a success message to the user
+    } catch (error) {
+      console.error("Error in donateHandler:", error);
+      // Handle the error, e.g., show an error message to the user
+    }
+  }
+
   return (
     <div>
        <div>
@@ -69,13 +80,13 @@ const CharityLists = () => {
               {list.successStory}
             </p>
             <div class="flex flex-row items-center cursor-pointer group">
-              <a
-                href="/donate"
+              <button
+                onClick={() => donateHandler({name: list.name, amount: 100})}
                 class="font-mullish font-bold bg-yellow-main p-2 rounded-md hover:text-white
                       transition-all duration-200"
               >
                 Donate
-              </a>
+              </button>
              
             </div>
           </div>

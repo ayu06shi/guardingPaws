@@ -74,7 +74,7 @@ function Home() {
                 to={auth.user ? "/donate" : "/login"}
                 className="relative font-poppins text-md z-10 hover:underline"
               >
-                <strong>Donate</strong>
+                <strong>Your Donation History</strong>
               </Link>
             </li>
             <li className="flex flex-row justify-between gap-x-3">

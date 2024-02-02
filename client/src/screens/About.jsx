@@ -6,7 +6,7 @@ import dogg from "../images/dog2.png";
 import img1 from "../images/my pic.jpeg";
 import img2 from "../images/harsh.jpeg";
 import img3 from "../images/shubham.jpeg";
-import img4 from "../images/swati.jpeg";
+import img4 from "../images/swati.jpg";
 
 function About() {
   return (
@@ -47,7 +47,7 @@ function About() {
                 src={img1}
                 alt=""
                 width={"180px"}
-                // height={"100px"}
+                // height={"800px"}
                 className="mx-auto items-center h-fit rounded-2xl justify-center"
               />
               <h3 className="font-poppins font-bold text-center mt-2">Ayushi Nayan</h3>

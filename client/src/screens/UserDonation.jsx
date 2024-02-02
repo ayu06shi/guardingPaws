@@ -16,36 +16,90 @@ function UserDonation() {
                 <thead>
                     <tr>
                         <th className='border border-y-orange-200'>
-                            Date
+                        Charity Name
                         </th>
                         <th className='border border-y-orange-200'>
                             Amount
                         </th>
                         <th className='border border-y-orange-200'>
-                            Charity Name
+                            Date
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td className='border border-y-orange-200'>16-01-2024</td>
-                        <td className='border border-y-orange-200'>Rs. 150/-</td>
+                    <tr className="text-center">
                         <td className='border border-y-orange-200'>Shobha Foundation</td>
+                        <td className='border border-y-orange-200'>Rs. 150/-</td>
+                        <td className='border border-y-orange-200'>16-01-2024</td>
                     </tr>
-                    <tr>
-                        <td className='border border-y-orange-200'>16-01-2024</td>
-                        <td className='border border-y-orange-200'>Rs. 150/-</td>
+                    <tr className="text-center">
                         <td className='border border-y-orange-200'>Shobha Foundation</td>
+                        <td className='border border-y-orange-200'>Rs. 150/-</td>
+                        <td className='border border-y-orange-200'>16-01-2024</td>
                     </tr>
-                    <tr>
-                        <td className='border border-y-orange-200'>16-01-2024</td>
-                        <td className='border border-y-orange-200'>Rs. 150/-</td>
+                    <tr className="text-center">
                         <td className='border border-y-orange-200'>Shobha Foundation</td>
+                        <td className='border border-y-orange-200'>Rs. 150/-</td>
+                        <td className='border border-y-orange-200'>16-01-2024</td>
                     </tr>
-                    <tr>
-                        <td className='border border-y-orange-200'>16-01-2024</td>
-                        <td className='border border-y-orange-200'>Rs. 150/-</td>
+                    <tr className="text-center">
                         <td className='border border-y-orange-200'>Shobha Foundation</td>
+                        <td className='border border-y-orange-200'>Rs. 150/-</td>
+                        <td className='border border-y-orange-200'>16-01-2024</td>
+                    </tr>
+                    <tr className="text-center">
+                        <td className='border border-y-orange-200'>Shobha Foundation</td>
+                        <td className='border border-y-orange-200'>Rs. 150/-</td>
+                        <td className='border border-y-orange-200'>16-01-2024</td>
+                    </tr>
+                    <tr className="text-center">
+                        <td className='border border-y-orange-200'>Shobha Foundation</td>
+                        <td className='border border-y-orange-200'>Rs. 150/-</td>
+                        <td className='border border-y-orange-200'>16-01-2024</td>
+                    </tr>
+                    <tr className="text-center">
+                        <td className='border border-y-orange-200'>Shobha Foundation</td>
+                        <td className='border border-y-orange-200'>Rs. 150/-</td>
+                        <td className='border border-y-orange-200'>16-01-2024</td>
+                    </tr>
+                    <tr className="text-center">
+                        <td className='border border-y-orange-200'>Shobha Foundation</td>
+                        <td className='border border-y-orange-200'>Rs. 150/-</td>
+                        <td className='border border-y-orange-200'>16-01-2024</td>
+                    </tr>
+                    <tr className="text-center">
+                        <td className='border border-y-orange-200'>Shobha Foundation</td>
+                        <td className='border border-y-orange-200'>Rs. 150/-</td>
+                        <td className='border border-y-orange-200'>16-01-2024</td>
+                    </tr>
+                    <tr className="text-center">
+                        <td className='border border-y-orange-200'>Shobha Foundation</td>
+                        <td className='border border-y-orange-200'>Rs. 150/-</td>
+                        <td className='border border-y-orange-200'>16-01-2024</td>
+                    </tr>
+                    <tr className="text-center">
+                        <td className='border border-y-orange-200'>Shobha Foundation</td>
+                        <td className='border border-y-orange-200'>Rs. 150/-</td>
+                        <td className='border border-y-orange-200'>16-01-2024</td>
+                    </tr><tr className="text-center">
+                        <td className='border border-y-orange-200'>Shobha Foundation</td>
+                        <td className='border border-y-orange-200'>Rs. 150/-</td>
+                        <td className='border border-y-orange-200'>16-01-2024</td>
+                    </tr>
+                    <tr className="text-center">
+                        <td className='border border-y-orange-200'>Shobha Foundation</td>
+                        <td className='border border-y-orange-200'>Rs. 150/-</td>
+                        <td className='border border-y-orange-200'>16-01-2024</td>
+                    </tr>
+                    <tr className="text-center">
+                        <td className='border border-y-orange-200'>Shobha Foundation</td>
+                        <td className='border border-y-orange-200'>Rs. 150/-</td>
+                        <td className='border border-y-orange-200'>16-01-2024</td>
+                    </tr>
+                    <tr className="text-center">
+                        <td className='border border-y-orange-200'>Shobha Foundation</td>
+                        <td className='border border-y-orange-200'>Rs. 150/-</td>
+                        <td className='border border-y-orange-200'>16-01-2024</td>
                     </tr>
                 </tbody>
             </table>
