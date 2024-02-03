@@ -7,12 +7,11 @@ import React from "react";
 import Loader from "../components/Loader";
 import Process from "./Process";
 import { useAuth } from "../context/auth";
+import blob from "../images/blob.png";
 // import Foooter from "../components/Foooter";
 
-
-
 function Home() {
-  const [auth, setAuth] = useAuth([])
+  const [auth, setAuth] = useAuth([]);
   return (
     <div className="overflow-x-hidden relative w-full">
       <div>
@@ -23,33 +22,43 @@ function Home() {
       </div> */}
       {/* <Loader/> */}
       {/* home page */}
-      <div className="relative flex flex-row">
-        <img className="relative z-0 h-[50%] w-[100vw]" src={dog1} alt=""/>
-        <div>
-        <svg className="relative" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <path
-            fill="#FCC844"
-            d="M37.4,-46.4C47.8,-35.8,55.2,-23.4,62.3,-7.4C69.4,8.6,76.1,28.2,70,41.9C63.8,55.7,44.9,63.6,26.3,69C7.6,74.5,-10.8,77.5,-28,73C-45.2,68.5,-61.1,56.5,-69.4,40.8C-77.6,25,-78.1,5.6,-74,-12.3C-70,-30.2,-61.3,-46.5,-48.2,-56.7C-35.1,-66.8,-17.6,-70.9,-2.1,-68.5C13.5,-66,26.9,-57.1,37.4,-46.4Z"
-            transform="translate(100 100)"
-          />
-          <h1 class="relative z-10 font-poppins rounded-md w-[260px] text-lg">
-            Welcome to guardingPaws.com! Here, we champion the welfare,
-            protection, and advocacy for our beloved canine companions. Our
-            platform is dedicated to raising awareness, providing resources, and
-            offering support for those passionate about ensuring the safety and
-            well-being of dogs everywhere.
-          </h1>
-        </svg>
-        </div>
-        {/* <div class="absolute m-6 p-8 px-4 py-3 bg-blobColor rounded-lg opacity-65 z-0">
-          <h1 class="relative z-10 font-poppins rounded-md w-[260px] text-lg">
-            Welcome to guardingPaws.com! Here, we champion the welfare,
-            protection, and advocacy for our beloved canine companions. Our
-            platform is dedicated to raising awareness, providing resources, and
-            offering support for those passionate about ensuring the safety and
-            well-being of dogs everywhere.
-          </h1>
+       {/* <div>
+          <svg
+            className="relative"
+            viewBox="0 0 200 200"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill="#FCC844"
+              d="M37.4,-46.4C47.8,-35.8,55.2,-23.4,62.3,-7.4C69.4,8.6,76.1,28.2,70,41.9C63.8,55.7,44.9,63.6,26.3,69C7.6,74.5,-10.8,77.5,-28,73C-45.2,68.5,-61.1,56.5,-69.4,40.8C-77.6,25,-78.1,5.6,-74,-12.3C-70,-30.2,-61.3,-46.5,-48.2,-56.7C-35.1,-66.8,-17.6,-70.9,-2.1,-68.5C13.5,-66,26.9,-57.1,37.4,-46.4Z"
+              transform="translate(100 100)"
+            />
+            <h1 class="relative z-10 font-poppins rounded-md w-[260px] text-lg">
+              Welcome to guardingPaws.com! Here, we champion the welfare,
+              protection, and advocacy for our beloved canine companions. Our
+              platform is dedicated to raising awareness, providing resources,
+              and offering support for those passionate about ensuring the
+              safety and well-being of dogs everywhere.
+            </h1>
+          </svg>
         </div> */}
+      <div className="relative flex flex-row">
+        <img className="relative z-0 w-[100vw] blobsm:opacity-85 lg:bloc" src={dog1} alt="" />
+       
+        {/* m-6 p-8 px-4 py-3 bg-blobColor rounded-lg opacity-65 z-0 */}
+        <div className="absolute -left-[60px] -top-[20px]">
+        <div className="absolute inset-0 z-10 p-20 h-full font-poppins rounded-md lg:w-[540px] blobmd:w-[450px] blobvssm:w-[450px] blobsm:hidden blobvssm:block blobsm:text-md text-center lg:text-lg">
+            {/* <div className="absolute w-full"> */}
+            Welcome to<br/> <strong>Guarding Paws!</strong><br/> Here, we champion the welfare,
+            protection, and advocacy for our beloved furry friends.<br/><br/> Our
+            platform is dedicated to raising awareness, providing resources, and 
+            offering support for those passionate about ensuring the safety and
+            well-being of animals everywhere.
+            {/* </div> */}
+          </div>
+        <img src={blob} alt="blob" className="z-5 blobvssm:block w-[50%] blobsm:hidden group"/>
+          
+        </div>
       </div>
 
       <div className="flex flex-col mt-4 mb-4">
@@ -74,7 +83,7 @@ function Home() {
                 to={auth.user ? "/donate" : "/login"}
                 className="relative font-poppins text-md z-10 hover:underline"
               >
-                <strong>Your Donation History</strong>
+                <strong>Donate</strong>
               </Link>
             </li>
             <li className="flex flex-row justify-between gap-x-3">
@@ -85,7 +94,7 @@ function Home() {
                 to="/forum"
                 className="relative font-poppins text-md z-10 hover:underline"
               >
-                <strong>Pet Advice</strong>
+                <strong>Community Forum</strong>
               </Link>
             </li>
             {/* <li className="flex flex-row justify-between gap-x-3">

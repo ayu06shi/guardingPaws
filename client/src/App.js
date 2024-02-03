@@ -17,6 +17,7 @@ import Form from "./screens/CharityForm";
 import Donate from './screens/Donate'
 import UserDonation from "./screens/UserDonation";
 import CharityHis from "./screens/CharityHis";
+import Forum from "./screens/Forum";
 
 // import Ask from "./screens/Forum/components/Ask";
 // import Loader from "./components/Loader";
@@ -46,6 +47,7 @@ function App() {
           {/* <Route exact path="/ask" element={<Ask/>}/> */}
           {/* <Route exact path="/forum" element={<Forum/>}/> */}
           <Route exact path="/donate" element={<Donate/>}/>
+          <Route exact path="/forum" element={<Forum />} />
         </Routes>
       </Router>
     </div>
