@@ -1,8 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import axios from 'axios'
 
-function CharityHis() {
+const CharityHis = () => {
+
+  const [charityHistory, setCharityHistory] = useState([])
+
+  useEffect(() => {
+    const fetchCharityDonationHistory = async() => {
+      try {
+        const config = {
+          headers: {
+            "Content-type": "application/json"
+          }
+        }
+
+        const res = await axios.get('/api/payment/charity-donation-history', config)
+        const data = await res.data;
+
+        setCharityHistory(data.donations)
+
+      } catch (error) {
+        console.log("Error in fetching Lists : ", error);
+      }
+    }
+
+    fetchCharityDonationHistory();
+
+  },[])
+
   return (
     <div>
         <div><Navbar/></div>
@@ -13,37 +40,28 @@ function CharityHis() {
                 <thead>
                     <tr>
                         <th className='border border-y-orange-200'>
-                            Date
+                            From
                         </th>
                         <th className='border border-y-orange-200'>
                             Amount
                         </th>
                         <th className='border border-y-orange-200'>
-                            From 
+                            Date 
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td className='border border-y-orange-200'>16-01-2024</td>
-                        <td className='border border-y-orange-200'>Rs. 150/-</td>
-                        <td className='border border-y-orange-200'>Suman</td>
-                    </tr>
-                    <tr>
-                        <td className='border border-y-orange-200'>16-01-2024</td>
-                        <td className='border border-y-orange-200'>Rs. 150/-</td>
-                        <td className='border border-y-orange-200'>Shivam</td>
-                    </tr>
-                    <tr>
-                        <td className='border border-y-orange-200'>16-01-2024</td>
-                        <td className='border border-y-orange-200'>Rs. 150/-</td>
-                        <td className='border border-y-orange-200'>Shobha</td>
-                    </tr>
-                    <tr>
-                        <td className='border border-y-orange-200'>16-01-2024</td>
-                        <td className='border border-y-orange-200'>Rs. 150/-</td>
-                        <td className='border border-y-orange-200'>Simran</td>
-                    </tr>
+                  {
+                    charityHistory.map((c, i) => {
+                      return (
+                        <tr className='text-center' key={i}>
+                          <td className='border border-y-orange-200'>{c.paidBy}</td>
+                          <td className='border border-y-orange-200'>Rs. {c.amount}/-</td>
+                          <td className='border border-y-orange-200'>{c.timestamp}</td>
+                        </tr>
+                      )
+                    })
+                  }
                 </tbody>
             </table>
         </div>

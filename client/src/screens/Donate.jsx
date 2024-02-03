@@ -1,11 +1,18 @@
 import React from 'react'
 import { useAuth } from '../context/auth'
+<<<<<<< HEAD
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+=======
+import CharityHis from './CharityHis'
+import UserDonation from './UserDonation'
+>>>>>>> upstream/main
 
 const Donate = () => {
     const [auth, setAuth] = useAuth([])
+
   return (
+<<<<<<< HEAD
     <div>
       <div>
       <Navbar/>
@@ -21,6 +28,17 @@ const Donate = () => {
       </div>
         
     </div>
+=======
+    <>
+      {
+        auth?.user?.role === 1 ? (
+          <CharityHis />
+        ) : (
+          <UserDonation />
+        )
+      }
+    </>
+>>>>>>> upstream/main
   )
 }
 

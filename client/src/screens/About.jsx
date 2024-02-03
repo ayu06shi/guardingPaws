@@ -6,7 +6,11 @@ import dogg from "../images/bg-hover.png";
 import img1 from "../images/my pic.jpeg";
 import img2 from "../images/harsh.jpeg";
 import img3 from "../images/shubham.jpeg";
+<<<<<<< HEAD
 import img4 from "../images/swati1.jpeg";
+=======
+import img4 from "../images/swati.jpg";
+>>>>>>> upstream/main
 
 function About() {
   return (
@@ -47,6 +51,7 @@ function About() {
               Team <span className="text-orange-600">'Vision of Us'</span>
             </h1>
 
+<<<<<<< HEAD
             {/* cards */}
             <div className="grid m-5 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 justify-between">
               {/* card 1 */}
@@ -61,6 +66,20 @@ function About() {
                 <h3 className="font-poppins font-bold text-center mt-2">
                   Ayushi Nayan
                 </h3>
+=======
+          {/* cards */}
+          <div  className="grid m-5 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 justify-between">
+            {/* card 1 */}
+            <div className="flex flex-col h-fit mx-5 py-4 mb-10 rounded-xl shadow-md transition-all duration-200">
+              <img
+                src={img1}
+                alt=""
+                width={"180px"}
+                // height={"800px"}
+                className="mx-auto items-center h-fit rounded-2xl justify-center"
+              />
+              <h3 className="font-poppins font-bold text-center mt-2">Ayushi Nayan</h3>
+>>>>>>> upstream/main
 
                 <div className="flex flex-row justify-evenly">
                   <Link
@@ -127,6 +146,7 @@ function About() {
                   Shubham Kumar
                 </h3>
 
+<<<<<<< HEAD
                 <div className="flex flex-row justify-evenly">
                   <Link
                     to="#" target="_blank"
@@ -147,6 +167,18 @@ function About() {
                     <i class="ri-github-fill"></i>
                   </Link>
                 </div>
+=======
+              <div className="flex flex-row justify-evenly">
+                <Link to="https://www.instagram.com/shubham_raj027/" className="hover:scale-110 transition-all duration-200">
+                  <i class="ri-instagram-line"></i>
+                </Link>
+                <Link to="https://www.linkedin.com/in/shubham-raj-694a33252/" className="hover:scale-110 transition-all duration-200">
+                  <i class="ri-linkedin-fill"></i>
+                </Link>
+                <Link to="#" className="hover:scale-110 transition-all duration-200">
+                  <i class="ri-github-fill"></i>
+                </Link>
+>>>>>>> upstream/main
               </div>
               <div className="flex flex-col  h-fit mx-5 py-4 mb-10 rounded-xl hover:scale-100 shadow-md transition-all duration-200">
                 <img
