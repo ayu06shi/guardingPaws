@@ -1,8 +1,14 @@
 const mongoose = require('mongoose')
 
 const paymentSchema = new mongoose.Schema({
-    name: {
-        type: String
+    paidTo: {
+        type: mongoose.ObjectId,
+        ref: "User"
+    },
+    paidBy: {
+        type: mongoose.ObjectId,
+        ref: "User",
+        default: null
     },
     amount: {
         type: Number

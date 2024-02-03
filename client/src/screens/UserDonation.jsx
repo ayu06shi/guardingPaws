@@ -1,9 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import axios from "axios";
+import { useAuth } from "../context/auth";
 
-function UserDonation() {
+const UserDonation = () => {
+
+  const [donationHistory, setDonationHistory] = useState([])
+
+  useEffect(() => {
+    const fetchUserDonationHistory = async() => {
+      try {
+        const config = {
+          headers: {
+            "Content-type": "application/json"
+          }
+        }
+
+        const res = await axios.get('/api/payment/user-donation-history', config)
+        const data = await res.data;
+
+        setDonationHistory(data.donations)
+
+      } catch (error) {
+        console.log("Error in fetching Lists : ", error);
+      }
+    }
+
+    fetchUserDonationHistory();
+  },[])
+
   return (
     <div>
       <div>
@@ -27,80 +54,18 @@ function UserDonation() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr className="text-center">
-                        <td className='border border-y-orange-200'>Shobha Foundation</td>
-                        <td className='border border-y-orange-200'>Rs. 150/-</td>
-                        <td className='border border-y-orange-200'>16-01-2024</td>
-                    </tr>
-                    <tr className="text-center">
-                        <td className='border border-y-orange-200'>Shobha Foundation</td>
-                        <td className='border border-y-orange-200'>Rs. 150/-</td>
-                        <td className='border border-y-orange-200'>16-01-2024</td>
-                    </tr>
-                    <tr className="text-center">
-                        <td className='border border-y-orange-200'>Shobha Foundation</td>
-                        <td className='border border-y-orange-200'>Rs. 150/-</td>
-                        <td className='border border-y-orange-200'>16-01-2024</td>
-                    </tr>
-                    <tr className="text-center">
-                        <td className='border border-y-orange-200'>Shobha Foundation</td>
-                        <td className='border border-y-orange-200'>Rs. 150/-</td>
-                        <td className='border border-y-orange-200'>16-01-2024</td>
-                    </tr>
-                    <tr className="text-center">
-                        <td className='border border-y-orange-200'>Shobha Foundation</td>
-                        <td className='border border-y-orange-200'>Rs. 150/-</td>
-                        <td className='border border-y-orange-200'>16-01-2024</td>
-                    </tr>
-                    <tr className="text-center">
-                        <td className='border border-y-orange-200'>Shobha Foundation</td>
-                        <td className='border border-y-orange-200'>Rs. 150/-</td>
-                        <td className='border border-y-orange-200'>16-01-2024</td>
-                    </tr>
-                    <tr className="text-center">
-                        <td className='border border-y-orange-200'>Shobha Foundation</td>
-                        <td className='border border-y-orange-200'>Rs. 150/-</td>
-                        <td className='border border-y-orange-200'>16-01-2024</td>
-                    </tr>
-                    <tr className="text-center">
-                        <td className='border border-y-orange-200'>Shobha Foundation</td>
-                        <td className='border border-y-orange-200'>Rs. 150/-</td>
-                        <td className='border border-y-orange-200'>16-01-2024</td>
-                    </tr>
-                    <tr className="text-center">
-                        <td className='border border-y-orange-200'>Shobha Foundation</td>
-                        <td className='border border-y-orange-200'>Rs. 150/-</td>
-                        <td className='border border-y-orange-200'>16-01-2024</td>
-                    </tr>
-                    <tr className="text-center">
-                        <td className='border border-y-orange-200'>Shobha Foundation</td>
-                        <td className='border border-y-orange-200'>Rs. 150/-</td>
-                        <td className='border border-y-orange-200'>16-01-2024</td>
-                    </tr>
-                    <tr className="text-center">
-                        <td className='border border-y-orange-200'>Shobha Foundation</td>
-                        <td className='border border-y-orange-200'>Rs. 150/-</td>
-                        <td className='border border-y-orange-200'>16-01-2024</td>
-                    </tr><tr className="text-center">
-                        <td className='border border-y-orange-200'>Shobha Foundation</td>
-                        <td className='border border-y-orange-200'>Rs. 150/-</td>
-                        <td className='border border-y-orange-200'>16-01-2024</td>
-                    </tr>
-                    <tr className="text-center">
-                        <td className='border border-y-orange-200'>Shobha Foundation</td>
-                        <td className='border border-y-orange-200'>Rs. 150/-</td>
-                        <td className='border border-y-orange-200'>16-01-2024</td>
-                    </tr>
-                    <tr className="text-center">
-                        <td className='border border-y-orange-200'>Shobha Foundation</td>
-                        <td className='border border-y-orange-200'>Rs. 150/-</td>
-                        <td className='border border-y-orange-200'>16-01-2024</td>
-                    </tr>
-                    <tr className="text-center">
-                        <td className='border border-y-orange-200'>Shobha Foundation</td>
-                        <td className='border border-y-orange-200'>Rs. 150/-</td>
-                        <td className='border border-y-orange-200'>16-01-2024</td>
-                    </tr>
+                  {
+                    donationHistory.map((d, index) => {
+                      return (
+                        <tr className="text-center" key={index}>
+                          <td className='border border-y-orange-200'>{d.paidTo}</td>
+                          <td className='border border-y-orange-200'>Rs. {d.amount}/-</td>
+                          <td className='border border-y-orange-200'>{d.timestamp}</td>
+                        </tr>
+                      )
+                    })
+                  }
+
                 </tbody>
             </table>
         </div>

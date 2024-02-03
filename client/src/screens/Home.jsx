@@ -24,7 +24,7 @@ function Home() {
       {/* <Loader/> */}
       {/* home page */}
       <div className="relative flex flex-row">
-        <img className="relative z-0 h-[50%]" src={dog1} alt=""/>
+        <img className="relative z-0 h-[50%] w-[100vw]" src={dog1} alt=""/>
         <div>
         <svg className="relative" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
           <path
