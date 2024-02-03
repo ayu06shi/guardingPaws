@@ -6,7 +6,7 @@ import dogg from "../images/dog2.png";
 import img1 from "../images/my pic.jpeg";
 import img2 from "../images/harsh.jpeg";
 import img3 from "../images/shubham.jpeg";
-import img4 from "../images/swati.jpeg";
+import img4 from "../images/swati.jpg";
 
 function About() {
   return (
@@ -47,7 +47,7 @@ function About() {
                 src={img1}
                 alt=""
                 width={"180px"}
-                // height={"100px"}
+                // height={"800px"}
                 className="mx-auto items-center h-fit rounded-2xl justify-center"
               />
               <h3 className="font-poppins font-bold text-center mt-2">Ayushi Nayan</h3>
@@ -85,7 +85,7 @@ function About() {
               <h3 className="font-poppins font-bold text-center">Shubham Kumar</h3>
 
               <div className="flex flex-row justify-evenly">
-                <Link to="#" className="hover:scale-110 transition-all duration-200">
+                <Link to="https://www.instagram.com/shubham_raj027/" className="hover:scale-110 transition-all duration-200">
                   <i class="ri-instagram-line"></i>
                 </Link>
                 <Link to="https://www.linkedin.com/in/shubham-raj-694a33252/" className="hover:scale-110 transition-all duration-200">

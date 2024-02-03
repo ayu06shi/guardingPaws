@@ -34,9 +34,9 @@ function Navbar(){
             <li class="p-4 hover:border-b-2 hover:border-white hover:border-opacity-100 hover:text-white duration-200 cursor-pointer">
               <Link to="/about">About</Link>
             </li>
-            <li class="p-4 hover:border-b-2 hover:border-white hover:border-opacity-100 hover:text-white duration-200 cursor-pointer">
-              <Link to={auth.user ? "/donate" : "/login"}>Donate</Link>
-            </li>
+             { auth?.user?.role === 1 ? <li class="p-4 hover:border-b-2 hover:border-white hover:border-opacity-100 hover:text-white duration-200 cursor-pointer">
+              <Link to="/form">Form</Link>
+            </li> : <></> }
             <li class="p-4 hover:border-b-2 hover:border-white hover:border-opacity-100 hover:text-white duration-200 cursor-pointer">
               <Link to="/contact">Contact</Link>
             </li>

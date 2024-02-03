@@ -1,12 +1,21 @@
 import React from 'react'
 import { useAuth } from '../context/auth'
+import CharityHis from './CharityHis'
+import UserDonation from './UserDonation'
 
 const Donate = () => {
     const [auth, setAuth] = useAuth([])
+
   return (
-    <div>
-        Donate
-    </div>
+    <>
+      {
+        auth?.user?.role === 1 ? (
+          <CharityHis />
+        ) : (
+          <UserDonation />
+        )
+      }
+    </>
   )
 }
 

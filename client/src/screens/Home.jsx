@@ -24,7 +24,7 @@ function Home() {
       {/* <Loader/> */}
       {/* home page */}
       <div className="relative flex flex-row">
-        <img className="relative z-0 h-[50%]" src={dog1} alt=""/>
+        <img className="relative z-0 h-[50%] w-[100vw]" src={dog1} alt=""/>
         <div>
         <svg className="relative" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -74,7 +74,7 @@ function Home() {
                 to={auth.user ? "/donate" : "/login"}
                 className="relative font-poppins text-md z-10 hover:underline"
               >
-                <strong>Donate</strong>
+                <strong>Your Donation History</strong>
               </Link>
             </li>
             <li className="flex flex-row justify-between gap-x-3">
