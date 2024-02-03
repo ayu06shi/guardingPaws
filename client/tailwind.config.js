@@ -17,7 +17,10 @@ module.exports = {
       screens: {
         sm: "340px",
         md: "560px",
-        
+        blobmd: "890px",
+        blobsm: {"max-width": "704px"},
+        blobvssm: "705px",
+        blobvsm: "530px",
         lg: "1024px",
         // => @media (min-width: 1024px) { ... }
         xl: "1280px",
