@@ -80,12 +80,6 @@ const Forum = () => {
               >
                 Ask a Question
               </Link>
-              {/* <div
-                // onClick={handleClick}
-                className="relative text-2xl h-fit my-6 text-center p-2 rounded-md bg-yellow-200 hover:bg-yellow-main transition-all duration-300"
-              >
-                My QnA
-              </div> */}
             </div>
           </div>
           <div class="my-8  divide-y-2 divide-gray-100">
