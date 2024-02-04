@@ -3,33 +3,30 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import axios from "axios";
-import { useAuth } from "../context/auth";
 
 const UserDonation = () => {
+  const [donationHistory, setDonationHistory] = useState([]);
 
-  const [donationHistory, setDonationHistory] = useState([])
+  const fetchUserDonationHistory = async () => {
+    try {
+      const config = {
+        headers: {
+          "Content-type": "application/json",
+        },
+      };
+
+      const res = await axios.get("/api/payment/user-donation-history", config);
+      const data = await res.data;
+
+      setDonationHistory(data.donations);
+    } catch (error) {
+      console.log("Error in fetching Lists : ", error);
+    }
+  };
 
   useEffect(() => {
-    const fetchUserDonationHistory = async() => {
-      try {
-        const config = {
-          headers: {
-            "Content-type": "application/json"
-          }
-        }
-  
-        const res = await axios.get('http://localhost:8000/api/payment/user-donation-history', config)
-        const data = await res.data;
-  
-        setDonationHistory(data.donations)
-  
-      } catch (error) {
-        console.log("Error in fetching Lists : ", error);
-      }
-    }
-
     fetchUserDonationHistory();
-  },[])
+  }, []);
 
   return (
     <div>
@@ -37,39 +34,37 @@ const UserDonation = () => {
         <Navbar />
       </div>
       <div className="max-w-[1080px] flex lg:flex-row md:flex-row sm:flex-col mx-auto">
-      <div className="relative mt-8 mx-auto flex flex-col mb-4 gap-y-6 flex-grow border-spacing-[7px] ">
-            <h3 className="flex flex-col font-poppins mx-auto text-4xl text-center">Your<span className="text-orange-600">Donation</span> History</h3>
-            <table className="table-auto flex-grow h-fit w-full mx-4 shadow-md rounded-sm font-poppins  border-spacing-[5px] border-separate border">
-                <thead>
-                    <tr>
-                        <th className='border border-y-orange-200'>
-                        Charity Name
-                        </th>
-                        <th className='border border-y-orange-200'>
-                            Amount
-                        </th>
-                        <th className='border border-y-orange-200'>
-                            Date
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                  {
-                    donationHistory.map((d, index) => {
-                      return (
-                        <tr className="text-center" key={index}>
-                          <td className='border border-y-orange-200'>{d.paidTo}</td>
-                          <td className='border border-y-orange-200'>Rs. {d.amount}/-</td>
-                          <td className='border border-y-orange-200'>{d.timestamp}</td>
-                        </tr>
-                      )
-                    })
-                  }
-
-                </tbody>
-            </table>
+        <div className="relative mt-8 mx-auto flex flex-col mb-4 gap-y-6 flex-grow border-spacing-[7px] ">
+          <h3 className="flex flex-col font-poppins mx-auto text-4xl text-center">
+            Your<span className="text-orange-600">Donation</span> History
+          </h3>
+          <table className="table-auto flex-grow h-fit w-full mx-4 shadow-md rounded-sm font-poppins  border-spacing-[5px] border-separate border">
+            <thead>
+              <tr>
+                <th className="border border-y-orange-200">Charity Name</th>
+                <th className="border border-y-orange-200">Amount</th>
+                <th className="border border-y-orange-200">Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {donationHistory.map((d, index) => {
+                return (
+                  <tr className="text-center" key={index}>
+                    <td className="border border-y-orange-200">{d.paidTo}</td>
+                    <td className="border border-y-orange-200">
+                      Rs. {d.amount}/-
+                    </td>
+                    <td className="border border-y-orange-200">
+                      {d.timestamp}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         </div>
-        <svg className="w-1/2 md:block lg:block sm:hidden"
+        <svg
+          className="w-1/2 md:block lg:block sm:hidden"
           xmlns="http://www.w3.org/2000/svg"
           enable-background="new 0 0 1000 1000"
           viewBox="0 0 1000 1000"
@@ -462,13 +457,12 @@ const UserDonation = () => {
             d="M804.841 188.022a9.22 9.22 0 0 0 2.103-6.965c-.46-4.246-6.194-6.327-8.611-6.758-3.182-.567-9.862 2.325-9.862 7.79v.025c.004 1.304-.997 2.385-2.301 2.385h-45.467c-1.288 0-2.307-1.054-2.297-2.342.009-1.197-.228-2.456-.813-3.761-1.33-2.966-4.568-3.402-7.462-3.735-5.026-.58-10.253 1.948-10.253 7.427 0 2.263.814 4.332 2.163 5.938a2.95 2.95 0 0 1-.004 3.827 9.22 9.22 0 0 0-2.103 6.965c.46 4.246 4.459 5.98 8.263 6.401 5.009.555 10.209-1.967 10.209-7.432v-.025c-.004-1.304.997-2.385 2.301-2.385h45.467a2.304 2.304 0 0 1 2.297 2.34c-.01 1.205.231 2.472.826 3.786 1.341 2.96 5.983 3.738 7.821 4.071 3.187.578 9.881-2.317 9.881-7.788a9.197 9.197 0 0 0-2.163-5.938 2.95 2.95 0 0 1 .005-3.826z"
           ></path>
         </svg>
-        
       </div>
       <div>
         <Footer />
       </div>
     </div>
   );
-}
+};
 
 export default UserDonation;
