@@ -75,7 +75,7 @@ return (
          <div class="w-full justify-center items-center ml-8 p-6 text-center grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-y-10 gap-x-4 relative z-[100]">
            {/* <!--item 1--> */}
            <div class="relative flex items-center z-0">
-             <h2 class="text-deepBlueHead font-mullish font-extrabold text-4xl leading-[3.375rem]">
+             <h2 class="text-deepBlueHead font-mullish font-extrabold text-3xl leading-[3.375rem]">
              Presenting a selection of
                <span className="text-amber-500"> Charitable</span> <br />
                recommendations for your consideration!

@@ -48,6 +48,8 @@ const getQuestion =  async (req, res) => {
   const postUpvote = async (req, res) => {
     const { id } = req.params;
     const userId = req.user._id;
+    console.log('ID:', id);
+  console.log('UserID:', userId);
     try {
       const findQuestion = await Question.findById(id);
       if (!findQuestion) {

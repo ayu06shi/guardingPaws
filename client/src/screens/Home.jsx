@@ -3,45 +3,44 @@ import Footer from "../components/Footer";
 import dog1 from "../images/dog11.png";
 // import dogselfie from "../images/dogSelfie.png";
 import { Link } from "react-router-dom";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Loader from "../components/Loader";
 import Process from "./Process";
 import { useAuth } from "../context/auth";
 import blob from "../images/blob.png";
+import axios from "axios";
 // import Foooter from "../components/Foooter";
 
 function Home() {
   const [auth, setAuth] = useAuth([]);
+  const [charityOfWeek, setCharityOfWeek] = useState({})
+
+  useEffect(() => {
+    const getCharityOfWeek = async() => {
+      try {
+        const config = {
+          headers: {
+            "Content-type": "application/json"
+          }
+        }
+
+        const res = await axios.get('/api/charity/charity-of-week', config)
+        console.log(res.data)
+        setCharityOfWeek(res.data.topCharity)
+
+      } catch (error) {
+        console.log("Error in fetching Lists : ", error);
+      }
+    }
+    getCharityOfWeek()
+  },[])
+
   return (
     <div className="overflow-x-hidden relative w-full">
       <div>
         <Navbar />
       </div>
-      {/* <div>
-        <Navbar/>
-      </div> */}
-      {/* <Loader/> */}
-      {/* home page */}
-       {/* <div>
-          <svg
-            className="relative"
-            viewBox="0 0 200 200"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill="#FCC844"
-              d="M37.4,-46.4C47.8,-35.8,55.2,-23.4,62.3,-7.4C69.4,8.6,76.1,28.2,70,41.9C63.8,55.7,44.9,63.6,26.3,69C7.6,74.5,-10.8,77.5,-28,73C-45.2,68.5,-61.1,56.5,-69.4,40.8C-77.6,25,-78.1,5.6,-74,-12.3C-70,-30.2,-61.3,-46.5,-48.2,-56.7C-35.1,-66.8,-17.6,-70.9,-2.1,-68.5C13.5,-66,26.9,-57.1,37.4,-46.4Z"
-              transform="translate(100 100)"
-            />
-            <h1 class="relative z-10 font-poppins rounded-md w-[260px] text-lg">
-              Welcome to guardingPaws.com! Here, we champion the welfare,
-              protection, and advocacy for our beloved canine companions. Our
-              platform is dedicated to raising awareness, providing resources,
-              and offering support for those passionate about ensuring the
-              safety and well-being of dogs everywhere.
-            </h1>
-          </svg>
-        </div> */}
+  
       <div className="relative flex flex-row">
         <img className="relative z-0 w-[100vw] blobsm:opacity-85 lg:bloc" src={dog1} alt="" />
        
@@ -83,7 +82,7 @@ function Home() {
                 to={auth.user ? "/donate" : "/login"}
                 className="relative font-poppins text-md z-10 hover:underline"
               >
-                <strong>Donate</strong>
+                <strong>Donation History</strong>
               </Link>
             </li>
             <li className="flex flex-row justify-between gap-x-3">
@@ -117,23 +116,20 @@ function Home() {
               bg-cover transition-all duration-200
               bg-white hover:scale-105 rounded-lg mx-auto overflow-hidden"
             >
-              <h3 class="font-poppins text-3xl font-bold pt-4">Charity-name</h3>
+              <h3 class="font-poppins text-3xl font-bold pt-4">{charityOfWeek.name}</h3>
               <h4 className="text-xl font-bold pt-3">Mission</h4>
               <p class="font-poppins py-3 text-grayText leading-normal">
-                Simplify your recurring, international and team expenses with
-                savings on every spend. Save upto 10 lacs month.
+                {charityOfWeek.mission}
               </p>
               <h4 className="text-xl font-bold pt-3">Impact</h4>
               <p class="font-poppins py-3 text-grayText leading-normal">
-                Simplify your recurring, international and team expenses with
-                savings on every spend. Save upto 10 lacs every month.
+                {charityOfWeek.impact}
               </p>
               <h4 className="text-xl font-bold pt-3">Success Story</h4>
               <p class="font-poppins py-3 text-grayText leading-normal">
-                Simplify your recurring, international and team expenses with
-                savings on every spend. Save upto 10 lacs every month.
+                {charityOfWeek.successStory}
               </p>
-              <div className="flex flex-row justify-center items-center cursor-pointer group">
+              {/* <div className="flex flex-row justify-center items-center cursor-pointer group">
                 <Link
                   to="/donate"
                   class="font-poppins font-bold bg-yellow-main p-2 rounded-md hover:text-white
@@ -141,7 +137,7 @@ function Home() {
                 >
                   Donate
                 </Link>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

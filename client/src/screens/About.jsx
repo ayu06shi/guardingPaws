@@ -14,16 +14,6 @@ function About() {
       <div>
         <Navbar />
       </div>
-      <div className="relative">
-        {/* <img src={dogg} alt="" height={"80vh"}/> */}
-        {/* <div class="absolute px-4 py-3 bg-blobColor top-12 left-7  opacity-60 rounded-lg">
-          <h1 class="bg-blobColor font-poppins rounded-md w-[260px] text-xl text-black">
-          At Guarding Paws, we are passionate advocates for the well-being and safety of our beloved animal
-           companions. Our mission is to provide a comprehensive resource for dog lovers, offering valuable information and services
-          to ensure the health, happiness, and protection of your furry friends.
-          </h1>
-        </div> */}
-      </div>
       <div className="relative max-w-[1080px] mx-auto flex lg:flex-col  md:flex-col sm:flex-col">
         <div
           className="relative mx-auto top-5 mb-10 p-8 max-w-[1080px] text-2xl w-2/3 bg-[url(./images/bg1.png)] max-h-fit cursor-pointer
@@ -124,12 +114,12 @@ function About() {
                   className="mx-auto items-center h-fit rounded-2xl justify-center"
                 />
                 <h3 className="font-poppins font-bold text-center">
-                  Shubham Kumar
+                  Shubham Raj
                 </h3>
 
                 <div className="flex flex-row justify-evenly">
                   <Link
-                    to="#" target="_blank"
+                    to="https://www.instagram.com/shubham_raj027/" target="_blank"
                     className="hover:scale-110 transition-all duration-200"
                   >
                     <i class="ri-instagram-line"></i>

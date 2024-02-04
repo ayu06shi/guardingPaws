@@ -17,12 +17,12 @@ const UserDonation = () => {
             "Content-type": "application/json"
           }
         }
-
-        const res = await axios.get('/api/payment/user-donation-history', config)
+  
+        const res = await axios.get('http://localhost:8000/api/payment/user-donation-history', config)
         const data = await res.data;
-
+  
         setDonationHistory(data.donations)
-
+  
       } catch (error) {
         console.log("Error in fetching Lists : ", error);
       }

@@ -27,7 +27,6 @@ const CharityHis = () => {
     }
 
     fetchCharityDonationHistory();
-
   },[])
 
   return (

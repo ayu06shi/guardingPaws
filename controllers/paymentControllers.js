@@ -62,9 +62,9 @@ const userDonationHistory = async(req, res) => {
     try {
         const userId = req.user._id;
 
-        const donations = await Payment.find({ paidBy: userId }).populate('paidTo', 'name');
+        const donations = await Payment.find({ paidBy: userId }).populate('paidTo', 'name').sort({ createdAt: -1 });
 
-        const formattedDonations = donations.map((donation) => ({
+        const formattedDonations = donations.map(donation => ({
             paidTo: donation.paidTo ? donation.paidTo.name : 'Unknown User',
             amount: donation.amount,
             timestamp: new Intl.DateTimeFormat('en-GB', {
@@ -86,7 +86,7 @@ const charityDonationHistory = async(req, res) => {
     try {
         const charityId = req.user._id;
 
-        const donations = await Payment.find({paidTo: charityId}).populate('paidBy', 'name')
+        const donations = await Payment.find({paidTo: charityId}).populate('paidBy', 'name').sort({ createdAt: -1 });
 
         const formattedDonations = donations.map(donation => ({
             paidBy: donation.paidBy ? donation.paidBy.name : 'Unknown User',
