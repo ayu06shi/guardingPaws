@@ -43,7 +43,7 @@ const paymentVerificationController = async(req, res) => {
                 }
             })
             console.log("Success..");
-            res.redirect('/home')
+            res.redirect('/')
             return;
         }
         else {
