@@ -43,7 +43,7 @@ const paymentVerificationController = async(req, res) => {
                 }
             })
             console.log("Success..");
-            res.redirect('https://guarding-paws.vercel.app/home')
+            res.redirect('https://guarding-paws.vercel.app/')
             return;
         }
         else {
