@@ -43,18 +43,18 @@ const paymentVerificationController = async(req, res) => {
                 }
             })
             console.log("Success..");
-            res.redirect('http://localhost:3000/donate')
+            res.redirect('/home')
             return;
         }
         else {
             await Payment.deleteOne({ order_id: razorpay_order_id });
             console.log("Failed..");
-            res.redirect('http://localhost:3000/failure')
+            res.redirect('/failure')
             return
         }
     } catch (error) {
         console.error("Error in paymentVerificationController:", error);
-        res.redirect('http://localhost:3000/failure');
+        res.redirect('/failure');
     }
 }
 
