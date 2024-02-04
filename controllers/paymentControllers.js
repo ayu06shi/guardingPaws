@@ -43,18 +43,22 @@ const paymentVerificationController = async(req, res) => {
                 }
             })
             console.log("Success..");
+// <<<<<<< test
             res.redirect('/')
+// =======
+            //res.redirect('https://guarding-paws.vercel.app/')
+// >>>>>>> main
             return;
         }
         else {
             await Payment.deleteOne({ order_id: razorpay_order_id });
             console.log("Failed..");
-            res.redirect('/failure')
+            res.redirect('https://guarding-paws.vercel.app/failure')
             return
         }
     } catch (error) {
         console.error("Error in paymentVerificationController:", error);
-        res.redirect('/failure');
+        res.redirect('https://guarding-paws.vercel.app/failure');
     }
 }
 
