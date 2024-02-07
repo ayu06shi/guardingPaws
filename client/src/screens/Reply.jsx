@@ -1,37 +1,30 @@
-import React from "react";
-import Add from "./Add";
-// import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+// import Add from "./Add";
+import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { duration } from "moment";
 
 const Reply = () => {
-  // const user = JSON.parse(localStorage.getItem("user"));
-  // const naviate = useNavigate();
-  // console.log(user._id);
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const { title, description, tags } = e.target;
-  //   const question = {
-  //     question: title.value,
-  //     description: description.value,
-  //     tags: tags.value.split(","),
-  //     userId: user._id,
-  //   };
 
-  //   console.log(question);
+  const naviate = useNavigate();
+  const {id} = useParams()
+  const [answer, setAnswer] = useState("")
 
-  //   const res = await axios.post(
-  //     "https://discussion-forum-production.up.railway.app/ask-question",
-  //     question
-  //   );
-  //   if (res.status === 201) {
-  //     toast.success("Question added successfully", (duration = 2000));
-  //     setTimeout(() => {
-  //       naviate("/");
-  //     }, 2000);
-  //   }
-  // };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const res = await axios.post(
+      `/api/reply/answer/${id}`,
+      {answer}
+    );
+    if (res.status === 201) {
+      toast.success("Question added successfully", (duration = 2000));
+      setTimeout(() => {
+        naviate("/forum");
+      }, 2000);
+    }
+  };
 
   return (
     <div className="h-full max-w-[1080px] mx-auto md:w-[50%]">
@@ -46,25 +39,13 @@ const Reply = () => {
        text-amber-700
         "
         >
-          Ask a Question
+          Share your reply
         </h1>
         
 
         <form 
-        // onSubmit={handleSubmit} 
-        className="form w-full ">
-          {/* <div className="title">
-            <label className="text-gray-800 text-start dark:text-white">
-              Your Reply
-            </label>
-            <input
-              name="title"
-              className="mt-2 w-full h-10 px-3 rounded outline-none border-none
-                shadow-sm"
-              type="text"
-            />
-          </div> */}
-         
+        onSubmit={handleSubmit} 
+        className="form w-full ">   
           <div className="desc mt-3">
             <label className="text-gray-800 font-bold text-start dark:text-white">
               Your Reply
@@ -73,20 +54,11 @@ const Reply = () => {
               name="description"
               className="mt-2 w-full h-24 px-3 py-2 rounded outline-none border-none  shadow-sm"
               type="text"
+              value={answer}
+              onChange={(e)=>setAnswer(e.target.value)}
             />
           </div>
-         
-          {/* <div className="tages mt-3">
-            <label className="text-gray-800 text-start dark:text-white">
-              Related Tags
-            </label>
-            <input
-              name="tags"
-              placeholder="Enter tags seperated by comma"
-              className="mt-2 w-full h-10 px-3 rounded outline-none border-none  shadow-sm"
-              type="text"
-            />
-          </div> */}
+
           <button
             type="submit"
             className="mt-8 w-[230px] mx-auto flex gap-2  text-center rounded-md shadow-sm px-8 py-2 cursor-pointer"

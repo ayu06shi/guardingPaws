@@ -43,18 +43,22 @@ const paymentVerificationController = async(req, res) => {
                 }
             })
             console.log("Success..");
-            res.redirect('http://localhost:3000/donate')
+// <<<<<<< test
+            res.redirect('/')
+// =======
+            //res.redirect('https://guarding-paws.vercel.app/')
+// >>>>>>> main
             return;
         }
         else {
             await Payment.deleteOne({ order_id: razorpay_order_id });
             console.log("Failed..");
-            res.redirect('http://localhost:3000/failure')
+            res.redirect('https://guarding-paws.vercel.app/failure')
             return
         }
     } catch (error) {
         console.error("Error in paymentVerificationController:", error);
-        res.redirect('http://localhost:3000/failure');
+        res.redirect('https://guarding-paws.vercel.app/failure');
     }
 }
 
@@ -62,9 +66,9 @@ const userDonationHistory = async(req, res) => {
     try {
         const userId = req.user._id;
 
-        const donations = await Payment.find({ paidBy: userId }).populate('paidTo', 'name');
+        const donations = await Payment.find({ paidBy: userId }).populate('paidTo', 'name').sort({ createdAt: -1 });
 
-        const formattedDonations = donations.map((donation) => ({
+        const formattedDonations = donations.map(donation => ({
             paidTo: donation.paidTo ? donation.paidTo.name : 'Unknown User',
             amount: donation.amount,
             timestamp: new Intl.DateTimeFormat('en-GB', {
@@ -86,7 +90,7 @@ const charityDonationHistory = async(req, res) => {
     try {
         const charityId = req.user._id;
 
-        const donations = await Payment.find({paidTo: charityId}).populate('paidBy', 'name')
+        const donations = await Payment.find({paidTo: charityId}).populate('paidBy', 'name').sort({ createdAt: -1 });
 
         const formattedDonations = donations.map(donation => ({
             paidBy: donation.paidBy ? donation.paidBy.name : 'Unknown User',

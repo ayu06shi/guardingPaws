@@ -1,4 +1,5 @@
-const Charity = require('../models/charityModel')
+const Charity = require('../models/charityModel');
+const Payment = require('../models/paymentModel');
 
 const createCharityController = async(req, res) => {
     try {
@@ -84,5 +85,45 @@ const updateCharityController = async (req, res) => {
     }
   };
   
+  const charityOfTheWeekController = async(req, res) => {
+    try {
+      const charityTotals = await Payment.aggregate([
+        {
+          $group: {
+            _id: '$paidTo',
+            totalAmount: { $sum: '$amount' }
+          }
+        },
+        {
+          $sort: { totalAmount: -1 } // Sort in descending order of total amount
+        }
+      ]);
 
-module.exports = {createCharityController, getCharityController, updateCharityController, getAllCharityController}
+      if (charityTotals.length === 0) {
+        return res.status(404).json({ message: 'No payment data found.' });
+      }
+
+      const topCharity = charityTotals[0];
+      const topCharityDetails = await Charity.findOne({ user: topCharity._id });
+
+      if (!topCharityDetails) {
+        return res.status(404).json({ message: 'Top charity not found.' });
+      }
+  
+      // You can now send the details of the top charity as a response
+      return res.status(200).json({
+        topCharity: {
+          name: topCharityDetails.name,
+          mission: topCharityDetails.mission,
+          impact: topCharityDetails.impact,
+          successStory: topCharityDetails.successStory,
+        }
+      });
+
+    } catch (error) {
+      console.error('Error in charityOfTheWeekController:', error);
+    return res.status(500).json({ message: 'Internal Server Error' });
+    }
+  }
+
+module.exports = {createCharityController, getCharityController, updateCharityController, getAllCharityController, charityOfTheWeekController}

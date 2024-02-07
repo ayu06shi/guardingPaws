@@ -4,7 +4,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import doggy from "../images/dog3.png";
 import axios from "axios";
-import toast from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
+import { duration } from "moment";
 
 const Signup = () => {
   const [name, setName] = useState("");
@@ -34,14 +35,13 @@ const Signup = () => {
         config
       );
       if (res && res.data.success) {
-        toast.success("Register Successfully");
+        alert("Register Successfully");
         navigate("/login");
       } else {
-        toast.error(res.data.message);
+        alert(res.data.message);
       }
     } catch (error) {
-      console.log(error);
-      toast.error("Something went wrong");
+      alert("Something went wrong");
     }
   };
 
@@ -547,8 +547,9 @@ const Signup = () => {
         </div>
         {/* for form on RHS */}
         <div className="relative flex flex-col items-center justify-center px-8 my-auto mx-auto pr-7 border shadow-md">
-          
-      <div className="font-poppins text-center text-3xl mt-5 font-bold text-amber-600">Create Account</div>
+          <div className="font-poppins text-center text-3xl mt-5 font-bold text-amber-600">
+            Create Account
+          </div>
           <form
             onSubmit={handleSubmit}
             className="relative h-fit w-full font-poppins"
@@ -618,7 +619,10 @@ const Signup = () => {
               <span className="ml-2">Check If you want to join as Charity</span>
             </div>
             <div className="flex justify-between m-5">
-              <button type="submit" className="bg-yellow-main rounded hover:bg-yellow-main transition-all duration-200 p-2">
+              <button
+                type="submit"
+                className="bg-yellow-main rounded hover:bg-yellow-main transition-all duration-200 p-2"
+              >
                 Register
               </button>
               <Link to="/login" className="bg-yellow-main rounded p-2">

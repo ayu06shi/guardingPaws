@@ -1,37 +1,33 @@
-import React from "react";
-import Add from "./Add";
-// import axios from "axios";
+import React, { useState } from "react";
+// import Add from "./Add";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import { duration } from "moment";
 
 const Askquestion = () => {
-  // const user = JSON.parse(localStorage.getItem("user"));
-  // const naviate = useNavigate();
-  // console.log(user._id);
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const { title, description, tags } = e.target;
-  //   const question = {
-  //     question: title.value,
-  //     description: description.value,
-  //     tags: tags.value.split(","),
-  //     userId: user._id,
-  //   };
 
-  //   console.log(question);
+  const naviate = useNavigate();
 
-  //   const res = await axios.post(
-  //     "https://discussion-forum-production.up.railway.app/ask-question",
-  //     question
-  //   );
-  //   if (res.status === 201) {
-  //     toast.success("Question added successfully", (duration = 2000));
-  //     setTimeout(() => {
-  //       naviate("/");
-  //     }, 2000);
-  //   }
-  // };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { title, description, tags } = e.target;
+    const question = {
+      question: title.value,
+      description: description.value,
+      tags: tags.value.split(",")
+    };
+
+    console.log(question);
+
+    const res = await axios.post("/api/question/ask-question", question);
+    if (res.status === 201) {
+      toast.success("Question added successfully", (duration = 2000));
+      setTimeout(() => {
+        naviate("/forum");
+      }, 2000);
+    }
+  };
 
   return (
     <div className="h-full max-w-[1080px] mx-auto md:w-[50%]">
@@ -51,7 +47,7 @@ const Askquestion = () => {
         
 
         <form 
-        // onSubmit={handleSubmit} 
+        onSubmit={handleSubmit} 
         className="form w-full ">
           <div className="title">
             <label className="text-gray-800 font-bold text-start dark:text-white">
