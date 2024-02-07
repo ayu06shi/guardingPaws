@@ -4,12 +4,9 @@ require('dotenv').config()
 const dbConnect = require('./config/dbConnect')
 const authRoutes = require('./routes/authRoutes')
 const charityRoutes = require('./routes/charityRoutes')
-
+const paymentRoutes = require('./routes/paymentRoutes')
 const questionRoutes = require('./routes/questionRoutes')
 const replyRoutes = require('./routes/replyRoutes')
-
-const paymentRoutes = require('./routes/paymentRoutes')
-
 const cors = require('cors')
 
 const PORT = process.env.PORT || 8000
@@ -23,14 +20,9 @@ dbConnect()
 //routes
 app.use('/api/user', authRoutes)
 app.use('/api/charity', charityRoutes)
-
+app.use('/api/payment', paymentRoutes)
 app.use('/api/question', questionRoutes)
 app.use('/api/reply', replyRoutes)
-
-  
-
-app.use('/api/payment', paymentRoutes)
-
 
 
 app.get('/', (req, res) => {

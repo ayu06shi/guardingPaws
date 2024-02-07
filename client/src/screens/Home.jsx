@@ -3,22 +3,44 @@ import Footer from "../components/Footer";
 import dog1 from "../images/dog11.png";
 // import dogselfie from "../images/dogSelfie.png";
 import { Link } from "react-router-dom";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Loader from "../components/Loader";
 import Process from "./Process";
 import { useAuth } from "../context/auth";
 import blob from "../images/blob.png";
+import axios from "axios";
 // import Foooter from "../components/Foooter";
 
 function Home() {
   const [auth, setAuth] = useAuth([]);
+  const [charityOfWeek, setCharityOfWeek] = useState({})
+
+  useEffect(() => {
+    const getCharityOfWeek = async() => {
+      try {
+        const config = {
+          headers: {
+            "Content-type": "application/json"
+          }
+        }
+
+        const res = await axios.get('/api/charity/charity-of-week', config)
+        console.log(res.data)
+        setCharityOfWeek(res.data.topCharity)
+
+      } catch (error) {
+        console.log("Error in fetching Lists : ", error);
+      }
+    }
+    getCharityOfWeek()
+  },[])
+
   return (
     <div className="overflow-x-hidden relative w-full">
       <div>
         <Navbar />
       </div>
-     
-       
+  
       <div className="relative flex flex-row">
         <img className="relative z-0 w-[100vw] blobsm:opacity-85 lg:bloc" src={dog1} alt="" />
        
@@ -60,7 +82,7 @@ function Home() {
                 to={auth.user ? "/donate" : "/login"}
                 className="relative font-poppins text-md z-10 hover:underline"
               >
-                <strong>Your Donation History</strong>
+                <strong>Donation History</strong>
               </Link>
             </li>
             <li className="flex flex-row justify-between gap-x-3">
@@ -74,10 +96,15 @@ function Home() {
                 <strong>Community Forum</strong>
               </Link>
             </li>
-           
+            {/* <li className="flex flex-row justify-between gap-x-3">
+                        <div className="bg-yellow-main h-6 w-6 text-center rounded-lg">
+                            <i class="ri-home-smile-line"></i>
+                        </div>
+                        <Link to="/rehoming" className="relative font-poppins text-sm z-10 hover:underline"><strong>Rehoming Centres</strong></Link>
+                    </li> */}
           </ul>
         </div>
-      
+        {/* <img src={dogselfie} className="relative -left-56" alt="" height="140px" /> */}
         <div className=" relative flex flex-wrap max-w-[1080px] mx-auto justify-center items-center text-center">
           <h3 className="text-4xl text-center font-poppins mb-5 bg-yellow-main px-2 rounded-md">
             Charity of the week
@@ -89,23 +116,20 @@ function Home() {
               bg-cover transition-all duration-200
               bg-white hover:scale-105 rounded-lg mx-auto overflow-hidden"
             >
-              <h3 class="font-poppins text-3xl font-bold pt-4">Charity-name</h3>
+              <h3 class="font-poppins text-3xl font-bold pt-4">{charityOfWeek.name}</h3>
               <h4 className="text-xl font-bold pt-3">Mission</h4>
               <p class="font-poppins py-3 text-grayText leading-normal">
-                Simplify your recurring, international and team expenses with
-                savings on every spend. Save upto 10 lacs month.
+                {charityOfWeek.mission}
               </p>
               <h4 className="text-xl font-bold pt-3">Impact</h4>
               <p class="font-poppins py-3 text-grayText leading-normal">
-                Simplify your recurring, international and team expenses with
-                savings on every spend. Save upto 10 lacs every month.
+                {charityOfWeek.impact}
               </p>
               <h4 className="text-xl font-bold pt-3">Success Story</h4>
               <p class="font-poppins py-3 text-grayText leading-normal">
-                Simplify your recurring, international and team expenses with
-                savings on every spend. Save upto 10 lacs every month.
+                {charityOfWeek.successStory}
               </p>
-              <div className="flex flex-row justify-center items-center cursor-pointer group">
+              {/* <div className="flex flex-row justify-center items-center cursor-pointer group">
                 <Link
                   to="/donate"
                   class="font-poppins font-bold bg-yellow-main p-2 rounded-md hover:text-white
@@ -113,7 +137,7 @@ function Home() {
                 >
                   Donate
                 </Link>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

@@ -6,27 +6,13 @@ import dogg from "../images/bg-hover.png";
 import img1 from "../images/my pic.jpeg";
 import img2 from "../images/harsh.jpeg";
 import img3 from "../images/shubham.jpeg";
-<<<<<<< HEAD
 import img4 from "../images/swati1.jpeg";
-=======
-import img4 from "../images/swati.jpg";
->>>>>>> upstream/main
 
 function About() {
   return (
     <div className="overflow-x-hidden relative w-full">
       <div>
         <Navbar />
-      </div>
-      <div className="relative">
-        {/* <img src={dogg} alt="" height={"80vh"}/> */}
-        {/* <div class="absolute px-4 py-3 bg-blobColor top-12 left-7  opacity-60 rounded-lg">
-          <h1 class="bg-blobColor font-poppins rounded-md w-[260px] text-xl text-black">
-          At Guarding Paws, we are passionate advocates for the well-being and safety of our beloved animal
-           companions. Our mission is to provide a comprehensive resource for dog lovers, offering valuable information and services
-          to ensure the health, happiness, and protection of your furry friends.
-          </h1>
-        </div> */}
       </div>
       <div className="relative max-w-[1080px] mx-auto flex lg:flex-col  md:flex-col sm:flex-col">
         <div
@@ -51,7 +37,6 @@ function About() {
               Team <span className="text-orange-600">'Vision of Us'</span>
             </h1>
 
-<<<<<<< HEAD
             {/* cards */}
             <div className="grid m-5 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 justify-between">
               {/* card 1 */}
@@ -66,20 +51,6 @@ function About() {
                 <h3 className="font-poppins font-bold text-center mt-2">
                   Ayushi Nayan
                 </h3>
-=======
-          {/* cards */}
-          <div  className="grid m-5 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 justify-between">
-            {/* card 1 */}
-            <div className="flex flex-col h-fit mx-5 py-4 mb-10 rounded-xl shadow-md transition-all duration-200">
-              <img
-                src={img1}
-                alt=""
-                width={"180px"}
-                // height={"800px"}
-                className="mx-auto items-center h-fit rounded-2xl justify-center"
-              />
-              <h3 className="font-poppins font-bold text-center mt-2">Ayushi Nayan</h3>
->>>>>>> upstream/main
 
                 <div className="flex flex-row justify-evenly">
                   <Link
@@ -143,13 +114,12 @@ function About() {
                   className="mx-auto items-center h-fit rounded-2xl justify-center"
                 />
                 <h3 className="font-poppins font-bold text-center">
-                  Shubham Kumar
+                  Shubham Raj
                 </h3>
 
-<<<<<<< HEAD
                 <div className="flex flex-row justify-evenly">
                   <Link
-                    to="#" target="_blank"
+                    to="https://www.instagram.com/shubham_raj027/" target="_blank"
                     className="hover:scale-110 transition-all duration-200"
                   >
                     <i class="ri-instagram-line"></i>
@@ -167,18 +137,6 @@ function About() {
                     <i class="ri-github-fill"></i>
                   </Link>
                 </div>
-=======
-              <div className="flex flex-row justify-evenly">
-                <Link to="https://www.instagram.com/shubham_raj027/" className="hover:scale-110 transition-all duration-200">
-                  <i class="ri-instagram-line"></i>
-                </Link>
-                <Link to="https://www.linkedin.com/in/shubham-raj-694a33252/" className="hover:scale-110 transition-all duration-200">
-                  <i class="ri-linkedin-fill"></i>
-                </Link>
-                <Link to="#" className="hover:scale-110 transition-all duration-200">
-                  <i class="ri-github-fill"></i>
-                </Link>
->>>>>>> upstream/main
               </div>
               <div className="flex flex-col  h-fit mx-5 py-4 mb-10 rounded-xl hover:scale-100 shadow-md transition-all duration-200">
                 <img
