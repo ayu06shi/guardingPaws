@@ -7,7 +7,6 @@ const charityRoutes = require('./routes/charityRoutes')
 const paymentRoutes = require('./routes/paymentRoutes')
 const questionRoutes = require('./routes/questionRoutes')
 const replyRoutes = require('./routes/replyRoutes')
-
 const cors = require('cors')
 const path = require('path')
 
@@ -24,6 +23,13 @@ dbConnect()
 app.use('/api/user', authRoutes)
 app.use('/api/charity', charityRoutes)
 app.use('/api/payment', paymentRoutes)
+app.use('/api/question', questionRoutes)
+app.use('/api/reply', replyRoutes)
+
+//rest API
+app.use('*', function(req, res) {
+    res.sendFile(path.join(__dirname, './client/build/index.html'))
+})
 
 
 app.get('/', (req, res) => {
